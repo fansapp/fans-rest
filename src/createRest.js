@@ -2,10 +2,17 @@ const fetch = require('isomorphic-fetch');
 const queryString = require('query-string');
 
 
-const handleResponse = call => call.then(response => response.json());
+const handleResponse = call =>
+  call.then(response => response.text())
+      .then(text => {
+        if (text === '') {
+          return {};
+        }
+        return JSON.parse(text);
+      });
 
 class Rest {
-  constructor(options) {
+  constructor(options = {}) {
     this.headers = {
       'Content-Type': 'application/json',
     };

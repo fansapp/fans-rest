@@ -1,0 +1,25 @@
+import chai from 'chai';
+import createRest from '../createRest';
+
+
+chai.should();
+
+describe('Rest library tests', () => {
+  let rest;
+
+  beforeEach(() => {
+    rest = createRest();
+  });
+
+  it('creates an instance with default config', () => {
+    rest.headers.should.eql({
+      'Content-Type': 'application/json',
+    });
+  });
+
+  it('provides HTTP methods (GET, POST, PATCH) as instance methods', () => {
+    rest.get.should.be.a('function');
+    rest.post.should.be.a('function');
+    rest.patch.should.be.a('function');
+  });
+});
