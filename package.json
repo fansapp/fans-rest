@@ -4,6 +4,7 @@
   "description": "An opinionated, isomorphic library built on top of `isomorphic-fetch`.",
   "main": "src/index.js",
   "scripts": {
+    "lint": "eslint src || true",
     "test": "test"
   },
   "repository": {
@@ -19,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/fansapp/fans-rest/issues"
   },
-  "homepage": "https://github.com/fansapp/fans-rest#readme"
+  "homepage": "https://github.com/fansapp/fans-rest#readme",
+  "devDependencies": {
+    "eslint": "^4.0.0"
+  }
 }
