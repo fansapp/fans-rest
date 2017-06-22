@@ -1,0 +1,23 @@
+{
+  "name": "fans-rest",
+  "version": "1.0.0",
+  "description": "An opinionated, isomorphic library built on top of `isomorphic-fetch`.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fansapp/fans-rest.git"
+  },
+  "keywords": [
+    "rest",
+    "fetch"
+  ],
+  "author": "FANS Entertainment",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fansapp/fans-rest/issues"
+  },
+  "homepage": "https://github.com/fansapp/fans-rest#readme"
+}
