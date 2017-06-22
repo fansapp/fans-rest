@@ -1,4 +1,4 @@
-import createRest from './core';
+import createRest from './createRest';
 import contentTypes from './contentTypes';
 
 
