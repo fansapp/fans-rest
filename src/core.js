@@ -16,39 +16,36 @@ class Rest {
 
     if ('handleResponse' in options) {
       this.handleResponse = options.handleResponse;
+    } else {
+      this.handleResponse = handleResponse;
     }
-
-    this.handleResponse = handleResponse;
   }
 
   mergeHeaders(headers) {
-    return Object.assign({}, this.headers, headers);
+    return { ...this.headers, ...headers };
   }
 
   get(url, params = null, headers = {}) {
     const getUrl = params ? `${url}?${queryString.stringify(params)}` : url;
-    const call = fetch(getUrl, {
+    return this.handleResponse(fetch(getUrl, {
       headers: this.mergeHeaders(headers),
-    });
-    return this.handleResponse(call);
+    }));
   }
 
   post(url, body, headers = {}) {
-    const call = fetch(url, {
+    return this.handleResponse(fetch(url, {
       method: 'POST',
       headers: this.mergeHeaders(headers),
       body: JSON.stringify(body),
-    });
-    return this.handleResponse(call);
+    }));
   }
 
   patch(url, body, headers = {}) {
-    const call = fetch(url, {
+    return this.handleResponse(fetch(url, {
       method: 'PATCH',
       headers: this.mergeHeaders(headers),
       body: JSON.stringify(body),
-    });
-    return this.handleResponse(call);
+    }));
   }
 }
 
