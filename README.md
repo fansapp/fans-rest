@@ -1,3 +1,5 @@
+![](https://travis-ci.org/fansapp/fans-rest.svg?branch=master)
+
 # fans-rest
 
 An opinionated, isomorphic library built on top of `isomorphic-fetch`.
