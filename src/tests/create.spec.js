@@ -4,7 +4,7 @@ import createRest from '../createRest';
 
 chai.should();
 
-describe('Rest library tests', () => {
+describe('Instance creation', () => {
   let rest;
 
   beforeEach(() => {
