@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src || true",
-    "test": "NODE_ENV=test mocha --opts mocha.opts || true"
+    "test": "NODE_ENV=test mocha --opts mocha.opts || true",
+    "test:travis": "NODE_ENV=test mocha --opts mocha.travis.opts"
   },
   "repository": {
     "type": "git",
