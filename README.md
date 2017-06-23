@@ -55,7 +55,7 @@ const rest = create({
 });
 ```
 
-### Response middleware
+<!-- ### Response middleware
 
 If you only need to hook up on the default behavior of the module, use `middleware`.
 This function will expose the response as an object and we will have the opportunity to operate some alterations on it before it comes back.
@@ -72,7 +72,7 @@ const rest = create({
     failure: !response.success,
   },
 });
-```
+``` -->
 
 ### Response handling
 
