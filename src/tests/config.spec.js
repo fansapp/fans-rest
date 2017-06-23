@@ -1,5 +1,8 @@
+global.Promise = require('es6-promise');
+
 import chai from 'chai';
 import createRest from '../createRest';
+
 
 
 chai.should();
