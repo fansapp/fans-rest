@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "eslint src || true",
     "test": "NODE_ENV=test mocha --opts mocha.opts || true",
-    "travis:test": "NODE_ENV=test mocha --opts mocha.travis.opts",
-    "travis:peer": "npm install isomorphic-fetch query-string"
+    "travis:install": "npm install isomorphic-fetch query-string",
+    "travis:test": "NODE_ENV=test mocha --opts mocha.travis.opts"
   },
   "repository": {
     "type": "git",
