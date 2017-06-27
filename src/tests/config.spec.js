@@ -1,5 +1,5 @@
 import chai from 'chai';
-import createRest from '../createRest';
+import create from '../create';
 
 
 
@@ -7,7 +7,7 @@ chai.should();
 
 describe('Configuration', () => {
   it('sets up headers', () => {
-    const rest = createRest({
+    const rest = create({
       headers: {
         'Content-Type': 'text/html',
         'Custom-Header': 'HelloWorld',
@@ -20,7 +20,7 @@ describe('Configuration', () => {
   });
 
   it('sets up custom response handling', () => {
-    const rest = createRest({
+    const rest = create({
       handleResponse: (call) => call.then(response => response.text()),
     });
     return rest.get('https://jsonplaceholder.typicode.com/posts/1')

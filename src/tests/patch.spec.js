@@ -1,5 +1,5 @@
 import chai from 'chai';
-import createRest from '../createRest';
+import create from '../create';
 
 
 chai.should();
@@ -8,7 +8,7 @@ describe('PATCH', () => {
   let rest;
 
   beforeEach( () => {
-    rest = createRest();
+    rest = create();
   });
 
   it('fetches data and converts to JS object', () =>

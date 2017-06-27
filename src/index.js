@@ -1,8 +1,8 @@
-import createRest from './createRest';
+import create from './create';
 import contentTypes from './contentTypes';
 
 
 export default {
-  createRest,
+  create,
   contentTypes,
 };

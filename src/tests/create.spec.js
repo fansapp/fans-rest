@@ -1,5 +1,5 @@
 import chai from 'chai';
-import createRest from '../createRest';
+import create from '../create';
 
 
 chai.should();
@@ -8,7 +8,7 @@ describe('Instance creation', () => {
   let rest;
 
   beforeEach(() => {
-    rest = createRest();
+    rest = create();
   });
 
   it('creates an instance with default config', () => {
