@@ -1,6 +1,8 @@
-import fetch from 'isomorphic-fetch';
 import queryString from 'query-string';
-import ContentTypes from './contentTypes';
+import ContentTypes from './ContentTypes';
+
+
+const globalObj = global || window;
 
 
 const handleResponse = call =>
@@ -57,4 +59,10 @@ class Rest {
   }
 }
 
-export default (options) => new Rest(options);
+export default (options) => {
+  if (!globalObj.fetch) {
+    throw new Error('Missing implementation of fetch API.');
+  }
+
+  return new Rest(options);
+}

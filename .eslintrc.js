@@ -12,4 +12,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
+  globals: {
+    fetch: true,
+  },
 };

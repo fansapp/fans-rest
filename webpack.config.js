@@ -8,7 +8,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
@@ -16,6 +16,7 @@ module.exports = {
   },
   output: {
     filename: 'dist/index.js',
+    libraryTarget: 'commonjs2',
   },
   plugins: [],
   resolve: {

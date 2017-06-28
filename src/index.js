@@ -1,8 +1,4 @@
-import create from './create';
-import ContentTypes from './contentTypes';
+export default null;
 
-
-export default {
-  create,
-  ContentTypes,
-};
+export const create = require('./create');
+export const ContentTypes = require('./ContentTypes');

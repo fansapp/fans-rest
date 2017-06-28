@@ -1,5 +1,8 @@
+import 'isomorphic-fetch';
+
 import chai from 'chai';
 import create from '../create';
+
 
 
 
