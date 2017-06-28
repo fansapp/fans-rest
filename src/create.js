@@ -1,5 +1,6 @@
-const fetch = require('isomorphic-fetch');
-const queryString = require('query-string');
+import fetch from 'isomorphic-fetch';
+import queryString from 'query-string';
+import ContentTypes from './contentTypes';
 
 
 const handleResponse = call =>
@@ -14,7 +15,7 @@ const handleResponse = call =>
 class Rest {
   constructor(options = {}) {
     this.headers = {
-      'Content-Type': 'application/json',
+      'Content-Type': ContentTypes.json,
     };
 
     if ('headers' in options) {

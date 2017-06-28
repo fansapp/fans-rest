@@ -1,8 +1,8 @@
 import create from './create';
-import contentTypes from './contentTypes';
+import ContentTypes from './contentTypes';
 
 
 export default {
   create,
-  contentTypes,
+  ContentTypes,
 };

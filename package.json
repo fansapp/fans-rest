@@ -1,10 +1,12 @@
 {
   "name": "fans-rest",
-  "version": "1.0.0",
+  "version": "1.1.0-beta.1",
   "description": "An opinionated, isomorphic library built on top of `isomorphic-fetch`.",
-  "main": "src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
+    "build": "babel src --ignore spec.js --out-dir dist",
     "lint": "eslint src || true",
+    "prepublish": "npm run build",
     "test": "NODE_ENV=test mocha --opts mocha.opts || true",
     "travis:install": "npm install isomorphic-fetch query-string",
     "travis:test": "NODE_ENV=test mocha --opts mocha.travis.opts"
@@ -34,8 +36,8 @@
     "eslint": "4.0.0",
     "mocha": "3.4.2"
   },
-  "peerDependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "query-string": "^4.3.4"
+  "dependencies": {
+    "isomorphic-fetch": "2.2.1",
+    "query-string": "4.3.4"
   }
 }
