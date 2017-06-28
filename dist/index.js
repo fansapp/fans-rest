@@ -75,8 +75,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
+  json: 'application/json',
+  mpeg: 'audio/mpeg',
+  ogg: 'audio/ogg',
+  jpeg: 'image/jpeg',
+  png: 'image/png',
   html: 'text/html',
-  json: 'application/json'
+  text: 'text/plain',
+  mp4: 'video/mp4'
 };
 module.exports = exports['default'];
 
