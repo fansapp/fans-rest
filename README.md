@@ -2,10 +2,8 @@
 
 # fans-rest
 
-An opinionated, isomorphic library built on top of `isomorphic-fetch`.
-Made with JSON in mind, but configurable.
-
-Any call
+A library that lets you build pre-configured rest clients.  
+Runs on browser and Node.
 
 ## Getting started
 
@@ -17,17 +15,14 @@ npm install --save fans-rest
 
 Use `create()` to create a new Rest client instance. Once done, reuse that instance anywhere you need.
 
-```js
-// File: src/app/utils/rest
+**Note:** you will need to make sure `fetch` resolves by the time your first client is initialized.  
+Any implementation of [WHATWG fetch](https://github.com/whatwg/fetch) will do. We recommend [`isomorphic-fetch`](https://github.com/matthew-andrews/isomorphic-fetch) to handle both client and server needs.
 
+```js
+import 'isomorphic-fetch';
 import { create } from 'fans-rest';
 
-export default create();
-
-
-// File: src/app/business
-
-import rest from '../utils/rest';
+const rest = create();
 
 rest.get('http://my-endpoint').then(response => {
   // do stuff
@@ -44,8 +39,6 @@ A configuration object can be passed to setup custom headers or response handlin
 For instance, if your API requires you to send the same headers for every call, pass your headers on construction:
 
 ```js
-// Module: src/app/utils/rest
-
 import { create } from 'fans-rest';
 
 const rest = create({
@@ -55,37 +48,16 @@ const rest = create({
 });
 ```
 
-<!-- ### Response middleware
-
-If you only need to hook up on the default behavior of the module, use `middleware`.
-This function will expose the response as an object and we will have the opportunity to operate some alterations on it before it comes back.
-In this example, we always add a key `failure` to the output based on the value of `success` in the server response.
-
-```js
-// Module: src/app/utils/rest
-
-import { create } from 'fans-rest';
-
-const rest = create({
-  middleware: (response) => {
-    ...response,
-    failure: !response.success,
-  },
-});
-``` -->
-
 ### Response handling
 
 By default, your module will return an object read directly from the server response.
 This behavior can be completely replaced if need be. Use `handleResponse` for that.
 
-**Note :** this module uses `isomorphic-fetch` to handle communication, check the docs to know what methods are available.
+**Note:** this module uses `isomorphic-fetch` to handle communication, check the docs to know what methods are available.
 
 For instance, in this example, we return the response as text, and we log a javascript version of it.
 
 ```js
-// Module: src/app/utils/rest
-
 import { create } from 'fans-rest';
 
 const rest = create({
@@ -94,7 +66,22 @@ const rest = create({
       const text = response.text();
       console.log(text === '' ? {} : JSON.parse(text));
       return text;
-    },
-  },
+    }),
+});
+```
+
+## ContentTypes
+
+Some of the most common content types strings are available by importing `ContentTypes`;
+
+```js
+// Module: src/app/utils/rest
+
+import { ContentTypes } from 'fans-rest';
+
+const rest = create({
+  headers: {
+    'Content-Types': ContentTypes.html,
+  }
 });
 ```
