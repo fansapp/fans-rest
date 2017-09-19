@@ -57,6 +57,22 @@ class Rest {
       body: JSON.stringify(body),
     }));
   }
+
+  put(url, body, headers = {}) {
+    return this.handleResponse(fetch(url, {
+      method: 'PUT',
+      headers: this.mergeHeaders(headers),
+      body: JSON.stringify(body),
+    }));
+  }
+
+  delete(url, body, headers = {}) {
+    return this.handleResponse(fetch(url, {
+      method: 'DELETE',
+      headers: this.mergeHeaders(headers),
+      body: JSON.stringify(body),
+    }));
+  }
 }
 
 export default (options) => {

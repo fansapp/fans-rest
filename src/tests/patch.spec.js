@@ -7,7 +7,7 @@ chai.should();
 describe('PATCH', () => {
   let rest;
 
-  beforeEach( () => {
+  beforeEach(() => {
     rest = create();
   });
 

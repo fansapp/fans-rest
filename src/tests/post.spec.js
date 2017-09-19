@@ -7,7 +7,7 @@ chai.should();
 describe('POST', () => {
   let rest;
 
-  beforeEach( () => {
+  beforeEach(() => {
     rest = create();
   });
 
