@@ -201,6 +201,17 @@ var Rest = function () {
       }));
     }
   }, {
+    key: 'put',
+    value: function put(url, body) {
+      var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+      return this.handleResponse(fetch(url, {
+        method: 'PUT',
+        headers: this.mergeHeaders(headers),
+        body: JSON.stringify(body)
+      }));
+    }
+  }, {
     key: 'delete',
     value: function _delete(url, body) {
       var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
