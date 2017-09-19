@@ -7,7 +7,7 @@ chai.should();
 describe('GET', () => {
   let rest;
 
-  beforeEach( () => {
+  beforeEach(() => {
     rest = create();
   });
 

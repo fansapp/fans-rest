@@ -75,14 +75,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
-  json: 'application/json',
-  mpeg: 'audio/mpeg',
-  ogg: 'audio/ogg',
-  jpeg: 'image/jpeg',
-  png: 'image/png',
   html: 'text/html',
-  text: 'text/plain',
-  mp4: 'video/mp4'
+  json: 'application/json'
 };
 module.exports = exports['default'];
 
@@ -202,6 +196,17 @@ var Rest = function () {
 
       return this.handleResponse(fetch(url, {
         method: 'PATCH',
+        headers: this.mergeHeaders(headers),
+        body: JSON.stringify(body)
+      }));
+    }
+  }, {
+    key: 'delete',
+    value: function _delete(url, body) {
+      var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+      return this.handleResponse(fetch(url, {
+        method: 'DELETE',
         headers: this.mergeHeaders(headers),
         body: JSON.stringify(body)
       }));
