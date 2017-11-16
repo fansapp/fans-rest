@@ -42,6 +42,14 @@ class Rest {
     }));
   }
 
+  head(url, params = null, headers = {}) {
+    const headUrl = params ? `${url}?${queryString.stringify(params)}` : url;
+    return this.handleResponse(fetch(headUrl, {
+      method: 'HEAD',
+      headers: this.mergeHeaders(headers),
+    }));
+  }
+
   post(url, body, headers = {}) {
     return this.handleResponse(fetch(url, {
       method: 'POST',
