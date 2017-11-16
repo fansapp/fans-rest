@@ -179,6 +179,18 @@ var Rest = function () {
       }));
     }
   }, {
+    key: 'head',
+    value: function head(url) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+      var headUrl = params ? url + '?' + _queryString2.default.stringify(params) : url;
+      return this.handleResponse(fetch(headUrl, {
+        method: 'HEAD',
+        headers: this.mergeHeaders(headers)
+      }));
+    }
+  }, {
     key: 'post',
     value: function post(url, body) {
       var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
