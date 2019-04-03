@@ -195,6 +195,7 @@ var Rest = function () {
     value: function post(url, body) {
       var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
+      console.log(this.mergeHeaders(headers));
       return this.handleResponse(fetch(url, {
         method: 'POST',
         headers: this.mergeHeaders(headers),
