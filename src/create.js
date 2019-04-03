@@ -29,6 +29,13 @@ class Rest {
     } else {
       this.handleResponse = handleResponse;
     }
+    
+    if(options.removeContentType) {
+      /* eslint-disable no-unused-vars */
+      const {'Content-Type': contentType, ...headers} = this.headers 
+      /* eslint-enable */
+      this.headers = headers
+    }
   }
 
   mergeHeaders(headers) {

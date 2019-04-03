@@ -195,11 +195,12 @@ var Rest = function () {
     value: function post(url, body) {
       var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      console.log(this.mergeHeaders(headers));
+      var mergedHeaders = this.mergeHeaders(headers);
+      var isJSON = mergedHeaders['Content-Type'] === _ContentTypes2.default.json;
       return this.handleResponse(fetch(url, {
         method: 'POST',
-        headers: this.mergeHeaders(headers),
-        body: JSON.stringify(body)
+        headers: mergedHeaders,
+        body: isJSON ? JSON.stringify(body) : body
       }));
     }
   }, {
