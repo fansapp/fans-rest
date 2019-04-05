@@ -29,6 +29,13 @@ class Rest {
     } else {
       this.handleResponse = handleResponse;
     }
+    
+    if(options.removeContentType) {
+      /* eslint-disable no-unused-vars */
+      const {'Content-Type': contentType, ...headers} = this.headers 
+      /* eslint-enable */
+      this.headers = headers
+    }
   }
 
   mergeHeaders(headers) {
@@ -51,10 +58,12 @@ class Rest {
   }
 
   post(url, body, headers = {}) {
+    const mergedHeaders = this.mergeHeaders(headers)
+    const isJSON = mergedHeaders['Content-Type'] === ContentTypes.json
     return this.handleResponse(fetch(url, {
       method: 'POST',
-      headers: this.mergeHeaders(headers),
-      body: JSON.stringify(body),
+      headers: mergedHeaders,
+      body: isJSON ? JSON.stringify(body) : body,
     }));
   }
 

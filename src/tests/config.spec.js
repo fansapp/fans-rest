@@ -22,6 +22,19 @@ describe('Configuration', () => {
     });
   });
 
+  it('removes content-type from headers if removeContentType is set to true', () => {
+    const rest = create({
+      removeContentType: true,
+      headers: {
+        'Content-Type': 'text/html',
+        'Custom-Header': 'HelloWorld',
+      },
+    });
+    rest.headers.should.eql({
+      'Custom-Header': 'HelloWorld',
+    });
+  });
+
   it('sets up custom response handling', () => {
     const rest = create({
       handleResponse: (call) => call.then(response => response.text()),

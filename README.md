@@ -55,6 +55,8 @@ const rest = create({
 });
 ```
 
+**Note :** If you set `removeContentType: true`, this will remove the Content-Type from headers allowing the browser to automatically set them for you. 
+
 <!-- ### Response middleware
 
 If you only need to hook up on the default behavior of the module, use `middleware`.
