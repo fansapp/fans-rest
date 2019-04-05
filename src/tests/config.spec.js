@@ -22,7 +22,7 @@ describe('Configuration', () => {
     });
   });
 
-  it('removes content-type from headers if removeContentType is true', () => {
+  it('removes content-type from headers if removeContentType is set to true', () => {
     const rest = create({
       removeContentType: true,
       headers: {
